@@ -26,15 +26,17 @@ agent any
               }
           }
       stage ("5. execute date command and save in a file"){
-          steps{
-              sh "echo 'test.txt' > test.txt"
-              sh "date" >> test.txt
-              sh "cal"
+          steps {
+                sh "pwd"
+                sh "cd /home/ec2-user/"
+                sh "touch error.html"
+                writeFile(file: "/home/ec2-user/index.html", text: "this is declarative pipeline", encoding: "UTF-8") 
+
               }
           }
         stage ("5. create file"){
           steps{
-             sh "mkdir ~/newfile.txt"
+             sh "touch ~/newfile.txt"
               }
           }
 
