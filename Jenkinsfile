@@ -25,10 +25,10 @@ agent { label 'slave-2'}
               sh "rpm -qa | grep nginx"
               }
           }
-      stage ("5. create file"){
+      stage ("5. execute date command and save in a file"){
           steps{
-              sh "echo test.txt"
-              sh "date"
+              sh "echo test.txt > test.txt"
+              sh "date" >> test.txt
               sh "cal"
               }
           }
